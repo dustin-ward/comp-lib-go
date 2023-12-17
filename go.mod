@@ -1,3 +1,3 @@
 module github.com/dustin-ward/comp-lib-go
 
-go 1.21.3
+go 1.21
