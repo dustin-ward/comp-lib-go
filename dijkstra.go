@@ -2,10 +2,10 @@ package complibgo
 
 import "fmt"
 
-func dijkstra() {
+func Dijkstra() {
 	fmt.Println("Helloworld")
 }
 
-func dijkstra_sparse() {
+func Dijkstra_Sparse() {
 
 }
