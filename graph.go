@@ -19,5 +19,11 @@ func NewGraphAdj(N int) *GraphAdj {
 }
 
 func (g *GraphAdj) AddEdge(u, v, w int) {
+	if u >= g.V || v >= g.V {
+		panic("AddEdge: node out of range")
+	}
+	if w < 0 {
+		panic("AddEdge: negative edge weight")
+	}
 	g.Adj[u] = append(g.Adj[u], edge{v, w})
 }

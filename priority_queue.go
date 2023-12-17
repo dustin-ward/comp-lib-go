@@ -25,6 +25,9 @@ func (pq *priority_queue[T]) Push(x T) {
 }
 
 func (pq *priority_queue[T]) Pop() T {
+	if pq.Empty() {
+		panic("Top: priority queue is empty")
+	}
 	top := pq.heap[0]
 
 	pq.heap[0] = pq.heap[len(pq.heap)-1]
@@ -35,6 +38,9 @@ func (pq *priority_queue[T]) Pop() T {
 }
 
 func (pq *priority_queue[T]) Top() T {
+	if pq.Empty() {
+		panic("Top: priority queue is empty")
+	}
 	return pq.heap[0]
 }
 
