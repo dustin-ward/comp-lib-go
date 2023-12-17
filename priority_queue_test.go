@@ -14,13 +14,13 @@ func TestPQ(t *testing.T) {
 		data[i] = rand.Int()
 	}
 
-	pq := NewPQ[int]()
+	pq := NewPQ[int](func(i, j int) bool { return i < j })
 	for _, v := range data {
 		pq.Push(v)
 	}
 
 	sort.Slice(data, func(i, j int) bool {
-		return data[i] >= data[j]
+		return data[i] < data[j]
 	})
 
 	for i, v := range data {

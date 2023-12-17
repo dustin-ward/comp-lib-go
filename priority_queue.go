@@ -1,14 +1,17 @@
 package complibgo
 
-import "cmp"
-
-type priority_queue[T cmp.Ordered] struct {
-	heap []T
+type priority_queue[T any] struct {
+	heap   []T
+	before func(a, b T) bool
 }
 
-func NewPQ[T cmp.Ordered]() *priority_queue[T] {
-	pq := &priority_queue[T]{}
-	pq.heap = make([]T, 0, 16)
+type beforeFunc[T any] func(i, j T) bool
+
+func NewPQ[T any](fn beforeFunc[T]) *priority_queue[T] {
+	pq := &priority_queue[T]{
+		make([]T, 0, 16),
+		fn,
+	}
 	return pq
 }
 
@@ -56,7 +59,7 @@ func rChild(i int) int {
 }
 
 func (pq *priority_queue[_]) shiftUp(i int) {
-	for i > 0 && pq.heap[i] > pq.heap[parent(i)] {
+	for i > 0 && pq.before(pq.heap[i], pq.heap[parent(i)]) {
 		pq.heap[i], pq.heap[parent(i)] = pq.heap[parent(i)], pq.heap[i]
 		i = parent(i)
 	}
@@ -66,12 +69,12 @@ func (pq *priority_queue[T]) shiftDown(i int) {
 	i2 := i
 
 	l := lChild(i)
-	if l < len(pq.heap) && pq.heap[l] > pq.heap[i2] {
+	if l < len(pq.heap) && pq.before(pq.heap[l], pq.heap[i2]) {
 		i2 = l
 	}
 
 	r := rChild(i)
-	if r < len(pq.heap) && pq.heap[r] > pq.heap[i2] {
+	if r < len(pq.heap) && pq.before(pq.heap[r], pq.heap[i2]) {
 		i2 = r
 	}
 
