@@ -1,6 +1,6 @@
 package complibgo
 
-func AreaPolygon(polygon []Point) double {
+func AreaPolygon(polygon []Point) float64 {
 	sum := 0.0
 	n := len(polygon)
 
