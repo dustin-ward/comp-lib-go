@@ -29,7 +29,6 @@ func TestPQ(t *testing.T) {
 		}
 
 		top := pq.Top()
-		t.Logf("data: %v == top: %v?", v, top)
 		if top != v {
 			t.Fatalf("expected %v, got %v", v, top)
 		}
