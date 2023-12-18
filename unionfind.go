@@ -24,7 +24,9 @@ func (uf *unionFind) Find(x int) int {
 	if uf.uf[x].p == x {
 		return x
 	} else {
-		return uf.Find(uf.uf[x].p)
+		r := uf.Find(uf.uf[x].p)
+		uf.uf[x].p = r
+		return r
 	}
 }
 
