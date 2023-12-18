@@ -4,8 +4,9 @@
 [x] Dijkstras (Sparse)
 [] Dijkstras (Dense)
 [] Kruskals
+[x] Binomial Coefficients
 
 ## Data Structures
-[] Union Find
+[x] Union Find
 [x] Priority Queue
 [] Segment Tree
