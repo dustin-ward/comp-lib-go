@@ -5,8 +5,8 @@ func AreaPolygon(polygon []Point) float64 {
 	n := len(polygon)
 
 	for i := 0; i < n-1; i++ {
-		sum += polygon[i].x*polygon[i+1].y - polygon[i].y*polygon[i+1].x
+		sum += polygon[i].X*polygon[i+1].Y - polygon[i].Y*polygon[i+1].X
 	}
-	sum += polygon[n-1].x*polygon[0].y - polygon[n-1].y*polygon[0].x
+	sum += polygon[n-1].X*polygon[0].Y - polygon[n-1].Y*polygon[0].X
 	return sum / 2.0
 }
