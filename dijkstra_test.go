@@ -4,7 +4,7 @@ import "testing"
 
 func TestDijkstraSparse1(t *testing.T) {
 	N := 9
-	g := NewGraphAdj(N)
+	g := NewGraphLst(N)
 
 	g.AddEdge(0, 1, 4)
 	g.AddEdge(1, 0, 4)

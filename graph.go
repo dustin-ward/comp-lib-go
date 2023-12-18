@@ -5,20 +5,20 @@ type edge struct {
 	w  int
 }
 
-type GraphAdj struct {
+type GraphLst struct {
 	V   int
 	Adj [][]edge
 }
 
-func NewGraphAdj(N int) *GraphAdj {
-	g := &GraphAdj{
+func NewGraphLst(N int) *GraphLst {
+	g := &GraphLst{
 		N,
 		make([][]edge, N),
 	}
 	return g
 }
 
-func (g *GraphAdj) AddEdge(u, v, w int) {
+func (g *GraphLst) AddEdge(u, v, w int) {
 	if u >= g.V || v >= g.V {
 		panic("AddEdge: node out of range")
 	}

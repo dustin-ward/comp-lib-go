@@ -11,7 +11,7 @@ type pii struct {
 	snd int
 }
 
-func Dijkstra_Sparse(G *GraphAdj, src int) []int {
+func Dijkstra_Sparse(G *GraphLst, src int) []int {
 	D := make([]int, G.V)
 	for i, _ := range D {
 		D[i] = INF
