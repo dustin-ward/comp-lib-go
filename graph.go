@@ -1,8 +1,8 @@
 package complibgo
 
-type edge struct {
-	to int
-	w  int
+type Edge struct {
+	To int
+	W  int
 }
 
 type GraphLst struct {
