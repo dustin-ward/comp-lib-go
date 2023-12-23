@@ -7,13 +7,13 @@ type Edge struct {
 
 type GraphLst struct {
 	V   int
-	Adj [][]edge
+	Adj [][]Edge
 }
 
 func NewGraphLst(N int) *GraphLst {
 	g := &GraphLst{
 		N,
-		make([][]edge, N),
+		make([][]Edge, N),
 	}
 	return g
 }
@@ -23,7 +23,7 @@ func (g *GraphLst) AddEdge(u, v, w int) {
 		panic("AddEdge: node out of range")
 	}
 	if w < 0 {
-		panic("AddEdge: negative edge weight")
+		panic("AddEdge: negative Edge weight")
 	}
-	g.Adj[u] = append(g.Adj[u], edge{v, w})
+	g.Adj[u] = append(g.Adj[u], Edge{v, w})
 }

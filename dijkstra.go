@@ -32,9 +32,9 @@ func Dijkstra_Sparse(G *GraphLst, src int) []int {
 		u := cur.snd
 
 		for _, e := range G.Adj[u] {
-			v := e.to
-			if D[v] > D[u]+e.w {
-				D[v] = D[u] + e.w
+			v := e.To
+			if D[v] > D[u]+e.W {
+				D[v] = D[u] + e.W
 				pq.Push(pii{D[v], v})
 			}
 		}
