@@ -35,7 +35,7 @@ func TestDijkstraSparse1(t *testing.T) {
 	g.AddEdge(7, 8, 7)
 	g.AddEdge(8, 7, 7)
 
-	D := Dijkstra_Sparse(g, 0)
+	D, _ := Dijkstra_Sparse(g, 0)
 	t.Log(D)
 
 	ans := []int{0, 4, 12, 19, 21, 11, 9, 8, 14}
